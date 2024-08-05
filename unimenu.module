@@ -1,0 +1,32 @@
+<?php
+
+/**
+ * Implements hook_theme().
+ */
+function unimenu_theme() {
+  return [
+    'universal_menu' => [
+      'render element' => 'menu',
+      'variables' => [
+        'items' => NULL,
+        'unimenu_phone' => NULL,
+        'unimenu_numphone' => NULL,
+        'unimenu_address' => NULL,
+        'unimenu_worktime' => NULL,
+        'unimenu_telegram' => NULL,
+        'unimenu_whatsapp' => NULL,
+        'unimenu_panel' => NULL,
+      ],
+      'template' => 'universal-menu',
+    ],
+  ];
+}
+
+/**
+ * Implements hook_preprocess().
+ */
+function unimenu_preprocess(&$variables) {
+  $variables['site_name'] = \Drupal::config('system.site')->get('name');
+  $path_logo_admin = theme_get_setting('logo.url');
+  $variables['logo_path'] = $path_logo_admin;
+}

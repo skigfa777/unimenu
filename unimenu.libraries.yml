@@ -1,0 +1,10 @@
+unimenu:
+  version: 1.x
+  head: true
+  js:
+    js/unimenu.js: {}
+  css:
+    layout:
+      css/unimenu.css: {}
+  dependencies:
+    - core/jquery
